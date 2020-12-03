@@ -10,6 +10,22 @@ namespace AdventOfCode2020
 {
     static class Utils
     {
+        public static T[,] stringToGrid<T>(string input , Func<char, T> f) {
+
+            input = SanitizeInput(input);
+            var width = input.IndexOf("\n");
+            var array = input.Replace("\n", "");
+            Debug.Assert(array.Length % width == 0);
+            var height = array.Length / width;
+            var output = new T[width, height];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                output[i % width, i / width] = f(array[i]);
+            }                    
+            return output;
+        } 
+
         public static string describe<T>(this T[] array)
         {
             return string.Join(',', array.Select(i => i.ToString()));
@@ -25,6 +41,20 @@ namespace AdventOfCode2020
             }
         }
 
+        public static U[,] map<T,U>(T[,] input, Func<T,U> f)
+        {
+            var output = new U[input.GetLength(0), input.GetLength(1)];
+            var width = input.GetLength(0);
+
+            for (int i = 0; i < input.Length; i++)             
+            {
+                output[i % width, i / width] = f(input[i % width, i / width]);
+            }            
+            
+            return output;
+
+        }
+
 
         public static IEnumerable<T> flatten<T>(this T[,] array)
         {
@@ -34,9 +64,15 @@ namespace AdventOfCode2020
             }
         }
 
+        public static string SanitizeInput(string input) 
+        {
+            return input.Replace("\r", "").TrimEnd('\n');
+
+        }
+
         public static IEnumerable<string> splitLines(string input)
         {
-            return input.Replace("\r", "").TrimEnd('\n').Split('\n').Select(l => l.Trim());
+            return SanitizeInput(input).Split('\n').Select(l => l.Trim());
         }
 
         public static IEnumerable<string> splitLinesWithoutTrim(string input)

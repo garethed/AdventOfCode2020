@@ -8,9 +8,25 @@ namespace AdventOfCode2020
 {
     abstract class Day
     {
-        public abstract string Part1(string input);
-        public abstract string Part2(string input);
-        //public abstract dynamic Input { get; }
+        public virtual string Part1S(string input)
+        {
+            return Part1(input).ToString();
+        }
+        public virtual string Part2S(string input)
+        {
+            return Part2(input).ToString();
+        }
+        
+        public virtual int Part1(string input)
+        {
+            return 666;
+        }
+
+        public virtual int Part2(string input)
+        {
+            return 666;
+        }
+
 
         public int Index
         {

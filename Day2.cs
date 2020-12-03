@@ -7,17 +7,17 @@ namespace AdventOfCode2020 {
     class Day2 : Day
     {
         [Test(2, testInput)]
-        public override string Part1(string input)
+        public override int Part1(string input)
         {
             var passwords = RegexDeserializable.Deserialize<PasswordPolicy>(input).ToArray();
-            return passwords.Count(p => p.IsValid).ToString();
+            return passwords.Count(p => p.IsValid);
         }
 
         [Test(1, testInput)]
-        public override string Part2(string input)
+        public override int Part2(string input)
         {
             var passwords = RegexDeserializable.Deserialize<PasswordPolicy>(input).ToArray();
-            return passwords.Count(p => p.IsValid2).ToString();
+            return passwords.Count(p => p.IsValid2);
         }
 
         [RegexDeserializable(@"(?<minOccurs>\d+)\-(?<maxOccurs>\d+) (?<requiredChar>\w): (?<password>\w+)")]

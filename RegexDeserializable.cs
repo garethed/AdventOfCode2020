@@ -8,6 +8,7 @@ using System.Reflection;
 namespace AdventOfCode2020
 {
 
+    // Annotate a class with a regex whose named captures (?<name>) correspond to constructor parameter names or field names
     [System.AttributeUsage(System.AttributeTargets.Class |
                            System.AttributeTargets.Struct | AttributeTargets.Field)
     ]
@@ -15,7 +16,7 @@ namespace AdventOfCode2020
     {
         private string regex;
 
-            public RegexDeserializable(string regex)
+        public RegexDeserializable(string regex)
         {
             this.regex = regex;
         }

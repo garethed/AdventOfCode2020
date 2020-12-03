@@ -7,14 +7,14 @@ namespace AdventOfCode2020
     [System.AttributeUsage(System.AttributeTargets.Method, AllowMultiple = true)]
     public class TestAttribute : Attribute {
 
-        object e;
-        object[] p;
+        object expected;
+        object[] parameters;
         
 
 
-        public TestAttribute(object e, params object[] p) {
-            this.e = e;
-            this.p = p;
+        public TestAttribute(object expected, params object[] parameters) {
+            this.expected = expected;
+            this.parameters = parameters;
         }
 
         public static bool TestAnnotatedMethods(object target) {
@@ -26,16 +26,16 @@ namespace AdventOfCode2020
 
                     try {
 
-                        var p2 = m.GetParameters().Zip(t.p, (targetParam, value) => Convert.ChangeType(value, targetParam.ParameterType)).ToArray(); 
-                        var o = m.Invoke(target, t.p);
-                        var e2 = Convert.ChangeType(t.e, m.ReturnType);
+                        var p2 = m.GetParameters().Zip(t.parameters, (targetParam, value) => Convert.ChangeType(value, targetParam.ParameterType)).ToArray(); 
+                        var o = m.Invoke(target, t.parameters);
+                        var e2 = Convert.ChangeType(t.expected, m.ReturnType);
                         ret &= Utils.Assert(string.Join(',', p2.Select(x => x.ToString()).ToArray()), o.ToString(), e2.ToString());
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine(e);
                         ret = false;
-                        Utils.Assert(string.Join(',', t.p.Select(x => x.ToString()).ToArray()), "[test error]", t.e.ToString());
+                        Utils.Assert(string.Join(',', t.parameters.Select(x => x.ToString()).ToArray()), "[test error]", t.expected.ToString());
                     }
                 }
             }

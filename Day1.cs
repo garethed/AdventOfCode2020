@@ -6,11 +6,11 @@ namespace AdventOfCode2020 {
     class Day1 : Day
     {
         [Test(514579, testInput)]
-        public override string Part1(string input)
+        public override int Part1(string input)
         {
             var data = Utils.splitLines(input).Select(s => int.Parse(s)).OrderBy(i => i).ToArray();
                       
-            return findPair(data, 2020, -1).ToString();
+            return findPair(data, 2020, -1);
 
             throw new InvalidOperationException();
         }
@@ -47,7 +47,7 @@ namespace AdventOfCode2020 {
         }
 
         [Test(241861950, testInput)]
-        public override string Part2(string input)
+        public override int Part2(string input)
         {
             var data = Utils.splitLines(input).Select(s => int.Parse(s)).OrderBy(i => i).ToArray();
 
@@ -57,12 +57,12 @@ namespace AdventOfCode2020 {
                 var pair = findPair(data, 2020 - n, i);
                 if (pair > 0) 
                 {
-                    return (pair * n).ToString();
+                    return (pair * n);
                 }
 
             }
 
-            return null;
+            return -1;
         }
 
         const string testInput = 

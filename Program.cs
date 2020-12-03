@@ -58,10 +58,10 @@ namespace AdventOfCode2020
                 {
                     Utils.WriteLine("** SOLUTIONS **", ConsoleColor.DarkYellow);
                     Utils.Write("Part 1: ", ConsoleColor.White);
-                    Utils.WriteLine(day.Part1(day.Input), ConsoleColor.DarkMagenta);
+                    Utils.WriteLine(day.Part1S(day.Input), ConsoleColor.DarkMagenta);
                     Checkpoint();
                     Utils.Write("Part 2: ", ConsoleColor.White);
-                    Utils.WriteLine(day.Part2(day.Input), ConsoleColor.DarkMagenta);
+                    Utils.WriteLine(day.Part2S(day.Input), ConsoleColor.DarkMagenta);
                     Checkpoint();
                     return true;
                 }
