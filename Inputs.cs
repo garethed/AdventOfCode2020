@@ -17,7 +17,7 @@ namespace AdventOfCode2020
             {
                 return File.ReadAllText(file).Trim('\n');
             }
-            return "";
+            throw new Exception("No input file for day " + day);
         }
     }
 }
