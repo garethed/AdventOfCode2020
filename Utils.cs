@@ -10,6 +10,20 @@ namespace AdventOfCode2020
 {
     static class Utils
     {
+        public static IEnumerable<T> neighbours<T>(T[,] grid, int x, int y)
+        {
+            foreach (var x2 in new[] { x -1, x, x + 1})
+            {
+                foreach (var y2 in new[] { y - 1, y, y + 1})
+                {
+                    if (x2 >= 0 && x2 < grid.GetLength(0) && y2 >= 0 && y2 < grid.GetLength(1) && (x2 != x || y2 != y))
+                    {
+                        yield return grid[x2,y2];
+                    }                   
+                }
+            }
+        }
+
         public static T[,] stringToGrid<T>(string input , Func<char, T> f) {
 
             input = SanitizeInput(input);
@@ -29,6 +43,19 @@ namespace AdventOfCode2020
         public static string describe<T>(this T[] array)
         {
             return string.Join(',', array.Select(i => i.ToString()));
+        }
+
+        public static void describe<T>(this T[,] grid)
+        {
+            for( int y = 0; y < grid.GetLength(1); y++)
+            {
+                for (int x = 0; x < grid.GetLength(0); x++)
+                {
+                    Console.Write(grid[x,y].ToString());
+                }
+                Console.WriteLine();
+            }            
+            Console.WriteLine();
         }
 
         public static void debug(this bool[,] data) {

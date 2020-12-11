@@ -8,7 +8,7 @@ namespace AdventOfCode2020 {
     class Day4 : Day
     {
         [Test(2, testData)]
-        public override int Part1(string input)
+        public override long Part1(string input)
         {
             return parseItems(input).Count(i => validate(i));
         }
@@ -38,7 +38,7 @@ namespace AdventOfCode2020 {
         
 
         [Test(4, testData2)]
-        public override int Part2(string input)
+        public override long Part2(string input)
         {
             var count = parseItems(input).Count(i => validate(i) && validate2(i));
             /*foreach (var kv in validOutputs) 

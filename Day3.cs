@@ -7,7 +7,7 @@ namespace AdventOfCode2020 {
     class Day3 : Day
     {
         [Test(7, testData)]
-        public override int Part1(string input)
+        public override long Part1(string input)
         {
             var grid = Utils.stringToGrid(input, c => c == '#');
             
@@ -24,7 +24,7 @@ namespace AdventOfCode2020 {
         }
 
         [Test(336, testData)]
-        public override int Part2(string input)
+        public override long Part2(string input)
         {
 
 /*

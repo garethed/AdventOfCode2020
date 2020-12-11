@@ -7,14 +7,14 @@ namespace AdventOfCode2020 {
     class Day2 : Day
     {
         [Test(2, testInput)]
-        public override int Part1(string input)
+        public override long Part1(string input)
         {
             var passwords = RegexDeserializable.Deserialize<PasswordPolicy>(input).ToArray();
             return passwords.Count(p => p.IsValid);
         }
 
         [Test(1, testInput)]
-        public override int Part2(string input)
+        public override long Part2(string input)
         {
             var passwords = RegexDeserializable.Deserialize<PasswordPolicy>(input).ToArray();
             return passwords.Count(p => p.IsValid2);

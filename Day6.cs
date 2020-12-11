@@ -7,7 +7,7 @@ namespace AdventOfCode2020 {
     class Day6 : Day
     {
         [Test(11, testData)]
-        public override int Part1(string input)
+        public override long Part1(string input)
         {
             return Calc(input, true);
         }
@@ -53,7 +53,7 @@ namespace AdventOfCode2020 {
             return c;            
         }
 
-        public override int Part2(string input)
+        public override long Part2(string input)
         {
             return Calc(input, false);
         }

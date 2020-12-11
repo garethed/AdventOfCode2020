@@ -17,12 +17,12 @@ namespace AdventOfCode2020
             return Part2(input).ToString();
         }
         
-        public virtual int Part1(string input)
+        public virtual long Part1(string input)
         {
             return 666;
         }
 
-        public virtual int Part2(string input)
+        public virtual long Part2(string input)
         {
             return 666;
         }

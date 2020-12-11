@@ -9,7 +9,7 @@ namespace AdventOfCode2020 {
     {        
 
         [Test(4, testData)]
-        public override int Part1(string input)
+        public override long Part1(string input)
         {
             parseBags(input);
 
@@ -44,7 +44,7 @@ namespace AdventOfCode2020 {
         }
 
         [Test(32, testData)]
-        public override int Part2(string input)
+        public override long Part2(string input)
         {
             parseBags(input);
             var gold = BagType.GetBagType("shiny gold");

@@ -4,16 +4,19 @@ using System.Collections.Generic;
 
 namespace AdventOfCode2020 {
 
-    class Day2 : Day
+    class Day? : Day
     {
-        public override int Part1(string input)
+        public override long Part1(string input)
         {
             throw new NotImplementedException();            
         }
 
-        public override int Part2(string input)
+        public override long Part2(string input)
         {
             throw new NotImplementedException();
         }
+
+        const string testData =
+@"";        
     }
 }

@@ -6,12 +6,12 @@ namespace AdventOfCode2020 {
 
     class Day5 : Day
     {
-        public override int Part1(string input)
+        public override long Part1(string input)
         {
             return Utils.splitLines(input).Select(l => idFromCode(l)).Max();
         }
 
-        public override int Part2(string input)
+        public override long Part2(string input)
         {
             int i1 = -99;
 

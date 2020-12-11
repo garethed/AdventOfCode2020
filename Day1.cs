@@ -6,7 +6,7 @@ namespace AdventOfCode2020 {
     class Day1 : Day
     {
         [Test(514579, testInput)]
-        public override int Part1(string input)
+        public override long Part1(string input)
         {
             var data = Utils.splitLines(input).Select(s => int.Parse(s)).OrderBy(i => i).ToArray();
                       
@@ -47,7 +47,7 @@ namespace AdventOfCode2020 {
         }
 
         [Test(241861950, testInput)]
-        public override int Part2(string input)
+        public override long Part2(string input)
         {
             var data = Utils.splitLines(input).Select(s => int.Parse(s)).OrderBy(i => i).ToArray();
 
