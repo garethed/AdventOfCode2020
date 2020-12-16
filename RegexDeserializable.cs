@@ -53,14 +53,13 @@ namespace AdventOfCode2020
                             }
 
                         }
-                    }
 
-                    if (parameters.Count == constructor.GetParameters().Length)
-                    {
-                        output = (T)constructor.Invoke(parameters.ToArray());
-                        goto NextObject;
+                        if (parameters.Count == constructor.GetParameters().Length)
+                        {
+                            output = (T)constructor.Invoke(parameters.ToArray());
+                            goto NextObject;
+                        }
                     }
-
                 }
 
 
