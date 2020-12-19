@@ -233,5 +233,13 @@ namespace AdventOfCode2020
         {
             return (a / gcf(a, b)) * b;
         }
+
+        /*public static U GetOrConstruct<T,U>(this IDictionary<T,U> dict, T key) where U : new 
+        {
+            if (!dict.ContainsKey(key)) {
+                dict[key] = new U();
+            }
+            return dict[key];
+        }*/
     }
 }

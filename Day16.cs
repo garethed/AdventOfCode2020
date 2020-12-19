@@ -56,14 +56,7 @@ namespace AdventOfCode2020 {
             var departureFields = fields.Where(f => f.Name.StartsWith("departure"));
             return departureFields.Aggregate(1L, (a, f) => a * tickets[0][f.possibleIndices.First()]);
 
-
-
-
-
-
-
-            
-            
+                    
         }
 
         public int InvalidFieldSum(int[] ticketData, Field[] fields)
