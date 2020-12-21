@@ -9,7 +9,38 @@ using System.Threading.Tasks;
 namespace AdventOfCode2020
 {
     static class Utils
-    {
+{
+        public static T[,] Rotate<T>(this T[,] arr)
+        {
+            T[,] newData = new T[arr.GetLength(1),arr.GetLength(0)];
+
+            for (int y = 0; y < arr.GetLength(1); y++)
+            {
+                for (int x = 0; x < arr.GetLength(0); x++)
+                {
+                    newData[y, arr.GetLength(0) - x - 1] = arr[x,y];
+                }
+            }
+
+            return newData;
+        }
+
+        public static T[,] ReflectX<T>(T[,] arr)
+        {
+            T[,] newData = new T[arr.GetLength(0),arr.GetLength(1)];
+
+            for (int y = 0; y < arr.GetLength(1); y++)
+            {
+                for (int x = 0; x < arr.GetLength(0); x++)
+                {
+                    newData[arr.GetLength(0) - x - 1, y] = arr[x,y];
+                }
+            }
+
+            return newData;
+
+        }
+
         public static IEnumerable<T> neighbours<T>(T[,] grid, int x, int y)
         {
             foreach (var x2 in new[] { x -1, x, x + 1})
@@ -234,12 +265,29 @@ namespace AdventOfCode2020
             return (a / gcf(a, b)) * b;
         }
 
-        /*public static U GetOrConstruct<T,U>(this IDictionary<T,U> dict, T key) where U : new 
+        /*
+        public static U GetOrConstruct<K,V>(this IDictionary<T,U> dict, T key) where U : new 
         {
             if (!dict.ContainsKey(key)) {
                 dict[key] = new U();
             }
             return dict[key];
         }*/
+
+        public static void Add<K,V>(this IDictionary<K,HashSet<V>> dict, K key, V value) 
+        {
+            if (!dict.ContainsKey(key)) {
+                dict[key] = new HashSet<V>();
+            }
+            
+            dict[key].Add(value);
+        }
+
+        public static string Reverse( this string s )
+        {
+            char[] charArray = s.ToCharArray();
+            Array.Reverse( charArray );
+            return new string( charArray );
+        }        
     }
 }
