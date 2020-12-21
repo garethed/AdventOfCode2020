@@ -265,14 +265,14 @@ namespace AdventOfCode2020
             return (a / gcf(a, b)) * b;
         }
 
-        /*
-        public static U GetOrConstruct<K,V>(this IDictionary<T,U> dict, T key) where U : new 
+        
+        public static V GetOrConstruct<K,V>(this IDictionary<K,V> dict, K key) where V : new() 
         {
             if (!dict.ContainsKey(key)) {
-                dict[key] = new U();
+                dict[key] = new V();
             }
             return dict[key];
-        }*/
+        }
 
         public static void Add<K,V>(this IDictionary<K,HashSet<V>> dict, K key, V value) 
         {
