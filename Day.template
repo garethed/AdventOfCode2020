@@ -6,6 +6,7 @@ namespace AdventOfCode2020 {
 
     class Day? : Day
     {
+        [Test(?, testData)]
         public override long Part1(string input)
         {
             throw new NotImplementedException();            
